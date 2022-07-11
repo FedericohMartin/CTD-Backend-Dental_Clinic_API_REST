@@ -1,5 +1,10 @@
 package com.dh.dentalclinic.controllers;
 
+import com.dh.dentalclinic.entities.Appointment;
+import com.dh.dentalclinic.entities.Dentist;
+import com.dh.dentalclinic.entities.Patient;
+import com.dh.dentalclinic.exceptions.BadRequestException;
+import com.dh.dentalclinic.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,12 +1,13 @@
 package com.dh.dentalclinic.controllers;
 
 import com.dh.dentalclinic.entities.Dentist;
+import com.dh.dentalclinic.exceptions.BadRequestException;
+import com.dh.dentalclinic.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-mport java.util.List;
 import java.util.List;
 import java.util.Optional;
 
