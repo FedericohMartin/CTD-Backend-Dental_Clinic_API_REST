@@ -25,37 +25,37 @@ public class Patient {
     private LocalDate dateAdmission;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "domicile_id", referencedColumnName = "id")
-    private Domicile domicile;
+    private Address address;
 
 
     @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
     @JsonIgnore
     private Set<Appointment> appointments = new HashSet<>();
 
-    public Patient(Long id, String name, String surname, String email, int documentNumber, Domicile domicile) {
+    public Patient(Long id, String name, String surname, String email, int documentNumber, Address address) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.documentNumber = documentNumber;
-        this.domicile = domicile;
+        this.address = address;
     }
 
-    public Patient(String name, String surname, String email, int documentNumber, LocalDate dateAdmission, Domicile domicile) {
+    public Patient(String name, String surname, String email, int documentNumber, LocalDate dateAdmission, Address address) {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.documentNumber = documentNumber;
         this.dateAdmission = dateAdmission;
-        this.domicile = domicile;
+        this.address = address;
     }
 
-    public Patient(String name, String surname, String email, int documentNumber, Domicile domicile) {
+    public Patient(String name, String surname, String email, int documentNumber, Address address) {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.documentNumber = documentNumber;
-        this.domicile = domicile;
+        this.address = address;
     }
 
     public Patient() {

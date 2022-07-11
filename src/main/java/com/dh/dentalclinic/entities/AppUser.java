@@ -59,8 +59,4 @@ public class AppUser implements UserDetails {
         return true;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
 }

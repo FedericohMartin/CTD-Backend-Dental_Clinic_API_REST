@@ -8,11 +8,11 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "domiciles")
-public class Domicile {
+@Table(name = "addresses")
+public class Address {
     @Id
-    @SequenceGenerator(name = "domicile_sequence",sequenceName = "domicile_sequence",allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "domicile_sequence")
+    @SequenceGenerator(name = "address_sequence",sequenceName = "address_sequence",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "address_sequence")
     private Long id;
     @Column
     private String street;
