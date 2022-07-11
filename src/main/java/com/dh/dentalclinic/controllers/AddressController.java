@@ -4,6 +4,7 @@ import com.dh.dentalclinic.entities.Address;
 import com.dh.dentalclinic.exceptions.BadRequestException;
 import com.dh.dentalclinic.exceptions.ResourceNotFoundException;
 import com.dh.dentalclinic.services.AddressService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,18 +30,18 @@ public class AddressController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Address> findDomicile(@PathVariable Long id){
-        Optional<Address> domicile=service.findAddress(id);
+    public ResponseEntity<Address> findAddress(@PathVariable Long id){
+        Optional<Address> address=service.findAddress(id);
         ResponseEntity response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        if(domicile.isPresent()){
-            response = ResponseEntity.ok(domicile.get());
+        if(address.isPresent()){
+            response = ResponseEntity.ok(address.get());
         }
         return response;
     }
 
     @PostMapping
     public ResponseEntity<Address> save(@RequestBody Address address) {
-        return ResponseEntity.ok(service.registerAddress(address));
+        return ResponseEntity.ok(service.saveAddress(address));
     }
 
     @PutMapping

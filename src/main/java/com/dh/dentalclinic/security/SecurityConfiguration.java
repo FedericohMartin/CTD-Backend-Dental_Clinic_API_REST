@@ -1,5 +1,6 @@
 package com.dh.dentalclinic.security;
 
+import com.dh.dentalclinic.services.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
