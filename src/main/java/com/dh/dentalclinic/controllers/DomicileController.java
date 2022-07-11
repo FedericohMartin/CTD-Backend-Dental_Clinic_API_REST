@@ -1,5 +1,6 @@
 package com.dh.dentalclinic.controllers;
 
+import com.dh.dentalclinic.entities.Domicile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,14 +10,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/domicilies")
+@RequestMapping("/domiciles")
 public class DomicileController {
     @Autowired
-    private DomicilieService service;
+    private DomicileService service;
 
     @GetMapping
-    public ResponseEntity<List<Domicilie>> list(){
-        List<Domicilie> list = service.listDomicilies();
+    public ResponseEntity<List<Domicile>> list(){
+        List<Domicile> list = service.listDomiciles();
         ResponseEntity response = ResponseEntity.status(HttpStatus.NO_CONTENT).build() ;
         if ( list!= null) {
             response = ResponseEntity.ok(list);
@@ -25,8 +26,8 @@ public class DomicileController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Domicilie> findDomicilie(@PathVariable Long id){
-        Optional<Domicilie> domicile=service.findDomicilie(id);
+    public ResponseEntity<Domicile> findDomicile(@PathVariable Long id){
+        Optional<Domicile> domicile=service.findDomicile(id);
         ResponseEntity response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         if(domicile.isPresent()){
             response = ResponseEntity.ok(domicile.get());
@@ -35,20 +36,20 @@ public class DomicileController {
     }
 
     @PostMapping
-    public ResponseEntity<Domicilie> guardar(@RequestBody Domicilie domicile) {
-        return ResponseEntity.ok(service.registrarDomicilie(domicile));
+    public ResponseEntity<Domicile> guardar(@RequestBody Domicile domicile) {
+        return ResponseEntity.ok(service.registrarDomicile(domicile));
     }
 
     @PutMapping
-    public ResponseEntity<Domicilie> update(@RequestBody Domicilie domicile) throws BadRequestException {
-        return ResponseEntity.ok(service.updateDomicilie(domicile));
+    public ResponseEntity<Domicile> update(@RequestBody Domicile domicile) throws BadRequestException {
+        return ResponseEntity.ok(service.updateDomicile(domicile));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id) throws ResourceNotFoundException {
         ResponseEntity response = ResponseEntity.status(HttpStatus.NOT_FOUND).body("Patient not found");
-        if (service.findDomicilie(id).isPresent()){
-            service.deleteDomicilie(id);
+        if (service.findDomicile(id).isPresent()){
+            service.deleteDomicile(id);
             response = ResponseEntity.ok("Patient deleted");
         }
         return response;
