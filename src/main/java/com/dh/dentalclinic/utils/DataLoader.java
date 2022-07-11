@@ -11,7 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DataLoader  implements ApplicationRunner {
+public class DataLoader implements ApplicationRunner {
 
     @Autowired
     UserRepository userRepository;
@@ -25,7 +25,7 @@ public class DataLoader  implements ApplicationRunner {
         String pass1 = passwordEncoder.encode("user");
         String pass2 = passwordEncoder.encode("admin");
 
-        userRepository.save(new AppUser("User", "user", "user@dentalclinic.com", pass1, AppUserRoles.ROLE_USER ));
+        userRepository.save(new AppUser("User", "user", "user@dentalclinic.com", pass1, AppUserRoles.ROLE_USER));
         logger.info("User created - Name: User , Username: user , Email: user@dentalclinic.com");
 
         userRepository.save(new AppUser("Admin", "admin" ,"admin@dentalclinic.com", pass2, AppUserRoles.ROLE_ADMIN));
