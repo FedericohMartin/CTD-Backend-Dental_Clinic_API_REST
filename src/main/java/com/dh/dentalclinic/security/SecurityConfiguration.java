@@ -30,14 +30,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/appointments/").hasRole("USER")
-                .antMatchers("/appointmentsList.html/").hasRole("USER")
-                .antMatchers("/").hasRole("ADMIN")
-                .antMatchers("/appointments/").hasRole("ADMIN")
-                .antMatchers("/appointmentsList.html/**").hasRole("ADMIN")
+                .antMatchers("/appointments").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/patients").hasRole("ADMIN")
+                .antMatchers("/dentists").hasRole("ADMIN")
+                .antMatchers("/address").hasRole("ADMIN")
+                .antMatchers("/").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
-                .and().formLogin()
-                .and().logout();
+                .and()
+                .formLogin()
+                .and()
+                .httpBasic() // for postman testing
+                .and()
+                .logout();
     }
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider(){

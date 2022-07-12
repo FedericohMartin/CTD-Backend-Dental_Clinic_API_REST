@@ -23,4 +23,21 @@ public class Address {
     @Column
     private String province;
 
+    public Address(Long id, String street, int streetNumber, String city, String province) {
+        this.id = id;
+        this.street = street;
+        this.streetNumber = streetNumber;
+        this.city = city;
+        this.province = province;
+    }
+
+    public Address(String street, int streetNumber, String city, String province) {
+        this.street = street;
+        this.streetNumber = streetNumber;
+        this.city = city;
+        this.province = province;
+    }
+
+    public Address() {
+    }
 }

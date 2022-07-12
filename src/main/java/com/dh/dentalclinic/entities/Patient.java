@@ -24,7 +24,7 @@ public class Patient {
     @Column
     private LocalDate dateAdmission;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "domicile_id", referencedColumnName = "id")
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
 

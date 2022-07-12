@@ -1,9 +1,10 @@
-package com.dh.dentalclinic.services;
+package com.dh.dentalclinic.services.impl;
 
 import com.dh.dentalclinic.entities.Dentist;
 import com.dh.dentalclinic.exceptions.BadRequestException;
 import com.dh.dentalclinic.exceptions.ResourceNotFoundException;
 import com.dh.dentalclinic.repositories.DentistRepository;
+import com.dh.dentalclinic.services.DentistService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

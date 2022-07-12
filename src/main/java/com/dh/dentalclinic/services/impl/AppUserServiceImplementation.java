@@ -1,7 +1,8 @@
-package com.dh.dentalclinic.services;
+package com.dh.dentalclinic.services.impl;
 
 import com.dh.dentalclinic.entities.AppUser;
 import com.dh.dentalclinic.repositories.UserRepository;
+import com.dh.dentalclinic.services.AppUserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
